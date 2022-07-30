@@ -4,6 +4,21 @@ include 'connection.php';
 $sql = "SELECT * FROM buku";
 $result = mysqli_query($conn, $sql);
 
+if(isset($_GET["submit_filter"])) {
+    $filter_buku = htmlspecialchars( $_GET["filter_buku"] );
+    if($filter_buku == "fiksi") {
+        $sql = "SELECT * FROM buku WHERE jenis = 'fiksi' ";
+        $result = mysqli_query($conn, $sql);
+    } else if($filter_buku == "non-fiksi") {
+        $sql = "SELECT * FROM buku WHERE jenis = 'non-fiksi' ";
+        $result = mysqli_query($conn, $sql);
+    } else {
+        $sql = "SELECT * FROM buku";
+        $result = mysqli_query($conn, $sql);
+    }
+}
+
+
 ?>
 
 
@@ -23,21 +38,24 @@ $result = mysqli_query($conn, $sql);
     </ul>
 
     <br>
+
     <form action="" method="GET">
-        <label for="filter">Filter berdasarkan jenis buku:</label>
-        <select name="filter" id="">
-            <option value="semua">Fiksi dan non-fiksi</option>
-            <option value="fiksi">Fiksi</option>
-            <option value="non_fiksi">Non-fiksi</option>
+        <label for="filter_buku">Filter berdasarkan jenis buku:</label>
+        <select name="filter_buku">
+            <option value="semua" <?php if(isset($_GET["filter_buku"]) && $_GET["filter_buku"] == "semua") echo "selected = 'selected' "; ?> >Fiksi dan non-fiksi</option>
+            <option value="fiksi" <?php if(isset($_GET["filter_buku"]) && $_GET["filter_buku"] == "fiksi") echo "selected = 'selected' "; ?> >Fiksi</option>
+            <option value="non-fiksi" <?php if(isset($_GET["filter_buku"]) && $_GET["filter_buku"] == "non-fiksi") echo "selected = 'selected' "; ?> >Non-fiksi</option>
         </select>
-        <input type="submit" value="filter">
+        <input type="submit" value="filter" name="submit_filter">
     </form>
+
     <br>
 
     <form action="" method="GET">
         <input type="text" name="cari" id="" placeholder="Cari buku" style="width: 240px;">
         <input type="submit" value="cari">
     </form>
+    
     <br>
 
     <table>
