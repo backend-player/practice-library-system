@@ -18,6 +18,16 @@ if(isset($_GET["submit_filter"])) {
     }
 }
 
+if(isset($_GET["submit_cari"])) {
+    if(empty    ($_GET["cari"])) {
+        $error_cari =  "anda belum mengisi pencarian";
+    } else {
+        $cari = htmlspecialchars( $_GET["cari"] );
+        $sql = "SELECT * FROM buku WHERE judul LIKE '%$cari%' OR jumlah_halaman LIKE '%$cari%' OR pengarang LIKE '%$cari%' OR penerbit LIKE '%$cari%' OR tahun LIKE '%$cari%' ";
+        $result = mysqli_query($conn, $sql);
+    }
+}
+
 
 ?>
 
@@ -53,8 +63,9 @@ if(isset($_GET["submit_filter"])) {
 
     <form action="" method="GET">
         <input type="text" name="cari" id="" placeholder="Cari buku" style="width: 240px;">
-        <input type="submit" value="cari">
+        <input type="submit" value="cari" name="submit_cari">
     </form>
+    <p style="color: red;"><?php if(isset($error_cari)) echo $error_cari ?></p>
     
     <br>
 
