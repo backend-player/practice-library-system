@@ -33,3 +33,24 @@ li a {
 li a:hover {
     background-color: black;
 }
+
+.kotak-login {
+    background-color: lightblue;
+    margin: 200px auto;
+    width: 300px;
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.form-login {
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 6px;
+}
+
+.tombol-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
