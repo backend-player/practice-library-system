@@ -6,7 +6,6 @@ if( !isset($_SESSION["username"]) ) {
     header("Location:login.php");
 }
 
-
 $sql = "SELECT * FROM buku";
 $result = mysqli_query($conn, $sql);
 

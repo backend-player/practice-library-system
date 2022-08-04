@@ -54,3 +54,23 @@ li a:hover {
     justify-content: center;
     align-items: center;
 }
+
+.ul-admin {
+    background-color: green;
+}
+
+.ul-admin li a:hover {
+    background-color: darkgreen;
+}
+
+.tambah-buku {
+    text-decoration: none;
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.tambah-buku:hover {
+    background-color: darkgreen;
+}

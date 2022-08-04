@@ -13,6 +13,7 @@
         $sql = "SELECT * FROM admin WHERE username = '$username ' && password = '$password' ";
         $result = mysqli_query($conn, $sql);
         if(mysqli_num_rows($result) > 0) {
+            session_start();
             $_SESSION["username"] = $username;
             header("Location:admin-home.php");
         } else {
