@@ -27,8 +27,6 @@ if(isset($_GET["submit_cari"])) {
         $result = mysqli_query($conn, $sql);
     }
 }
-
-
 ?>
 
 

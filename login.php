@@ -1,26 +1,26 @@
 <?php
-  include 'connection.php';
+include 'connection.php';
 
-  if(isset($_POST["login"])) {
-    $username = htmlspecialchars($_POST["username"]);
-    $password = htmlspecialchars($_POST["password"]);
+if(isset($_POST["login"])) {
+$username = htmlspecialchars($_POST["username"]);
+$password = htmlspecialchars($_POST["password"]);
 
-    if(empty($username)) {
-        $pesan_error = "anda belum mengisi username";
-    } else if(empty($password)) {
-        $pesan_error =  "anda belum mengisi password";
+if(empty($username)) {
+    $pesan_error = "anda belum mengisi username";
+} else if(empty($password)) {
+    $pesan_error =  "anda belum mengisi password";
+} else {
+    $sql = "SELECT * FROM admin WHERE username = '$username ' && password = '$password' ";
+    $result = mysqli_query($conn, $sql);
+    if(mysqli_num_rows($result) > 0) {
+        session_start();
+        $_SESSION["username"] = $username;
+        header("Location:admin-home.php");
     } else {
-        $sql = "SELECT * FROM admin WHERE username = '$username ' && password = '$password' ";
-        $result = mysqli_query($conn, $sql);
-        if(mysqli_num_rows($result) > 0) {
-            session_start();
-            $_SESSION["username"] = $username;
-            header("Location:admin-home.php");
-        } else {
-            $pesan_error = "Username / password salah";
-        }
+        $pesan_error = "Username / password salah";
     }
-  }
+}
+}
 ?>
 
 
