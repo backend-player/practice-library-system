@@ -90,3 +90,13 @@ li a:hover {
     margin-bottom: 20px;
     margin-top: 0px;
 }
+
+.tombol-aksi {
+    background-color: green;
+    padding: 10px;
+    text-decoration: none;
+    /* margin: 10px; */
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+}
