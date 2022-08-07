@@ -105,7 +105,7 @@ if(isset($_GET["submit_cari"])) {
                 
                 <td style="white-space: nowrap;">
                     <a class="tombol-aksi" href="edit-buku.php?id=<?php echo $row["id"] ?> ">edit</a>
-                    <a class="tombol-aksi" href="" onclick="return confirm('Anda yakin ingin menghapus data?')">hapus</a>
+                    <a class="tombol-aksi" href="hapus-buku.php?id=<?php echo $row["id"] ?>" onclick="return confirm('Anda yakin ingin menghapus data?')">hapus</a>
                 </td>
             </tr>
         <?php endwhile ?>
