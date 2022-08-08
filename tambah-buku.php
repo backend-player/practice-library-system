@@ -7,12 +7,12 @@ if( !isset($_SESSION["username"]) ) {
 }
 
 if(isset($_POST["tambah"])) {
-    $judul = $_POST["judul"];
-    $jumlah_halaman = $_POST["jumlah_halaman"];
-    $pengarang = $_POST["pengarang"];
-    $penerbit = $_POST["penerbit"];
-    $tahun = $_POST["tahun"];
-    $jumlah_buku = $_POST["jumlah"];
+    $judul = htmlspecialchars($_POST["judul"]);
+    $jumlah_halaman =htmlspecialchars($_POST["jumlah_halaman"]);
+    $pengarang = htmlspecialchars($_POST["pengarang"]);
+    $penerbit = htmlspecialchars($_POST["penerbit"]);
+    $tahun = htmlspecialchars($_POST["tahun"]);
+    $jumlah_buku = htmlspecialchars($_POST["jumlah"]);
     $jenis = $_POST["jenis"];
 
 

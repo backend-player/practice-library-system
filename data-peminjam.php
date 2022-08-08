@@ -6,7 +6,7 @@ if( !isset($_SESSION["username"]) ) {
     header("Location:login.php");
 }
 
-$sql = "SELECT * FROM data_peminjam";
+$sql = "SELECT * FROM data_peminjam WHERE status_peminjaman = 'aktif' ";
 $result = mysqli_query($conn, $sql);
 
 if(isset($_GET["submit_cari"])) {
@@ -64,12 +64,19 @@ if(isset($_GET["submit_cari"])) {
         </tr>
 
         <?php while($row = mysqli_fetch_assoc($result)): ?>
+
+            <?php
+            // jika waktu pengembalian masih kosong, ubah data yang ditampilkan menjadi -
+            if($row["waktu_pengembalian"] == "0000-00-00 00:00:00") {
+            $row["waktu_pengembalian"] = "-";
+            }
+            ?>
             <tr>
                 <td><?php echo $row["nama"] ?></td>
-                <td><?php echo $row["judul"] ?></td>
+                <td><?php echo $row["judul_buku"] ?></td>
                 <td><?php echo $row["waktu_peminjaman"] ?></td>
                 <td><?php echo $row["waktu_pengembalian"] ?></td>
-                <td><?php echo $row["jumlah_denda"] ?></td>
+                <td><?php echo "Rp. " . $row["jumlah_denda"] ?></td>
                 <td><?php echo $row["status_peminjaman"] ?></td>
                 <td><?php echo $row["jumlah_buku_dipinjam"] ?></td>
                 <td><a href="">selesai</a></td>
