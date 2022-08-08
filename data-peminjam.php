@@ -79,7 +79,7 @@ if(isset($_GET["submit_cari"])) {
                 <td><?php echo "Rp. " . $row["jumlah_denda"] ?></td>
                 <td><?php echo $row["status_peminjaman"] ?></td>
                 <td><?php echo $row["jumlah_buku_dipinjam"] ?></td>
-                <td><a href="">selesai</a></td>
+                <td><a href="kembalikan-buku.php?id=<?php echo $row["id"] ?>" onclick="return confirm('Anda yakin ingin mengupdate data?')">selesai</a></td>
             </tr>
         <?php endwhile ?>
 
