@@ -27,7 +27,7 @@ if(isset($_GET["submit_cari"])) {
         $error_cari =  "anda belum mengisi pencarian";
     } else {
         $cari = htmlspecialchars( $_GET["cari"] );
-        $sql = "SELECT * FROM data_peminjam WHERE judul LIKE '%$cari%' OR jumlah_halaman LIKE '%$cari%' OR pengarang LIKE '%$cari%' OR penerbit LIKE '%$cari%' OR tahun LIKE '%$cari%' ";
+        $sql = "SELECT * FROM data_peminjam WHERE status_peminjaman = 'aktif' AND nama LIKE '%$cari%' OR judul_buku LIKE '%$cari%' OR waktu_peminjaman LIKE '%$cari%' OR waktu_pengembalian LIKE '%$cari%' OR jumlah_denda LIKE '%$cari%'  ";
         $result = mysqli_query($conn, $sql);
     }
 }
