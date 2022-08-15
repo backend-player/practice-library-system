@@ -101,6 +101,10 @@ li a:hover {
     border-radius: 10px;
 }
 
+.tombol-aksi:hover {
+    background-color: darkgreen;
+}
+
 .kotak-peminjam {
     background-color: lightblue;
     margin: 170px auto;
@@ -114,4 +118,18 @@ li a:hover {
     width: 100%;
     margin-bottom: 20px;
     margin-top: 0px;
+}
+
+.tombol-selesai {
+    background-color: green;
+    padding: 6px 10px;
+    text-decoration: none;
+    margin: 20px;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+}
+
+.tombol-selesai:hover {
+    background-color: darkgreen;
 }
